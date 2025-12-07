@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,6 +67,17 @@
 
         .contact-item i {
             color: #4CAF50;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #4CAF50;
+            text-decoration: underline;
         }
 
         .main-content {
@@ -168,7 +180,7 @@
 
         .certificate-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 15px;
         }
 
@@ -178,11 +190,18 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             border-top: 3px solid #4CAF50;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .cert-provider {
             font-weight: 600;
             color: #2c3e50;
+            margin-bottom: 5px;
         }
 
         .cert-name {
@@ -253,6 +272,13 @@
             color: #444;
         }
 
+        .certificate-category {
+            font-size: 0.85rem;
+            color: #777;
+            font-style: italic;
+            margin-top: 3px;
+        }
+
         @media (max-width: 768px) {
             .main-content {
                 flex-direction: column;
@@ -268,6 +294,10 @@
             
             .header h1 {
                 font-size: 1.8rem;
+            }
+            
+            .certificate-list {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -404,36 +434,84 @@
                     <h2 class="section-title"><i class="fas fa-certificate"></i>Certificates</h2>
                     <div class="certificate-list">
                         <div class="certificate-item">
-                            <div class="cert-provider">Stanford</div>
-                            <div class="cert-name">Supervised ML, Unsupervised ML, Recommenders & RL, Advanced Algorithms</div>
+                            <div class="cert-provider">Stanford University</div>
+                            <div class="cert-name">Supervised Machine Learning</div>
+                            <div class="certificate-category">Machine Learning</div>
                         </div>
                         <div class="certificate-item">
-                            <div class="cert-provider">DeepLearning.AI</div>
-                            <div class="cert-name">Neural Networks & Deep Learning, Improving DNNs</div>
+                            <div class="cert-provider">Stanford University</div>
+                            <div class="cert-name">Unsupervised Learning, Recommenders, Reinforcement Learning</div>
+                            <div class="certificate-category">Machine Learning</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">Stanford University</div>
+                            <div class="cert-name">Advanced Learning Algorithms</div>
+                            <div class="certificate-category">Machine Learning</div>
                         </div>
                         <div class="certificate-item">
                             <div class="cert-provider">IBM</div>
-                            <div class="cert-name">Generative AI Apps, Python for Data Science, AI & Development</div>
+                            <div class="cert-name">Building Generative AI-Powered Applications with Python</div>
+                            <div class="certificate-category">AI Development</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">DeepLearning.AI</div>
+                            <div class="cert-name">Neural Network and Deep Learning</div>
+                            <div class="certificate-category">Deep Learning</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">DeepLearning.AI</div>
+                            <div class="cert-name">Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization</div>
+                            <div class="certificate-category">Deep Learning</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">University of London</div>
+                            <div class="cert-name">International Business Environment</div>
+                            <div class="certificate-category">Business</div>
                         </div>
                         <div class="certificate-item">
                             <div class="cert-provider">Google</div>
                             <div class="cert-name">Agile Project Management</div>
+                            <div class="certificate-category">Project Management</div>
                         </div>
                         <div class="certificate-item">
-                            <div class="cert-provider">Google Cloud</div>
-                            <div class="cert-name">Gemini for Data Scientists</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">UC</div>
-                            <div class="cert-name">SQL for Data Science</div>
+                            <div class="cert-provider">IBM</div>
+                            <div class="cert-name">Python for Data Science, AI & Development</div>
+                            <div class="certificate-category">Programming & Data Science</div>
                         </div>
                         <div class="certificate-item">
                             <div class="cert-provider">Microsoft</div>
-                            <div class="cert-name">Power BI</div>
+                            <div class="cert-name">Data Analysis and Visualization with Power BI</div>
+                            <div class="certificate-category">Data Visualization</div>
                         </div>
                         <div class="certificate-item">
-                            <div class="cert-provider">Krish Naik</div>
-                            <div class="cert-name">Agentic & Generative AI (AWS & GCP Bootcamp)</div>
+                            <div class="cert-provider">IBM</div>
+                            <div class="cert-name">Excel Essentials for Data Analytics</div>
+                            <div class="certificate-category">Data Analytics</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">University of California</div>
+                            <div class="cert-name">SQL for Data Science</div>
+                            <div class="certificate-category">Database</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">Google Cloud</div>
+                            <div class="cert-name">Gemini for Data Scientists and Analysts</div>
+                            <div class="certificate-category">AI Tools</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">Various</div>
+                            <div class="cert-name">Python Programming Language, SQL Server 2019, Web Scraping with Python</div>
+                            <div class="certificate-category">Programming & Tools</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">Various</div>
+                            <div class="cert-name">Artificial Intelligence Mathematics Introductory</div>
+                            <div class="certificate-category">Mathematics</div>
+                        </div>
+                        <div class="certificate-item">
+                            <div class="cert-provider">Krish Naik Bootcamp</div>
+                            <div class="cert-name">Agentic A.I. & Generative A.I. with Cloud (AWS & GCP)</div>
+                            <div class="certificate-category">AI & Cloud</div>
                         </div>
                     </div>
                 </div>
@@ -495,6 +573,19 @@
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0)';
                 }, 100 + (index * 50));
+            });
+            
+            // Animate certificate items with delay
+            const certItems = document.querySelectorAll('.certificate-item');
+            certItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 200 + (index * 30));
             });
         });
     </script>
