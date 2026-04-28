@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arash Omranpour - AI Engineer</title>
+    <title>Arash Omranpour - AI Engineer & Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #00dbde;
@@ -14,7 +14,7 @@
             --glass-border: rgba(255, 255, 255, 0.15);
             --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-secondary: rgba(255, 255, 255, 0.85);
             --accent-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
             --card-radius: 20px;
             --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -35,7 +35,6 @@
             padding: 20px;
             position: relative;
             overflow-x: hidden;
-            letter-spacing: 0.3px;
         }
 
         body::before {
@@ -58,7 +57,6 @@
             100% { transform: scale(1.1); }
         }
 
-        /* Matrix Background */
         .matrix-bg {
             position: fixed;
             top: 0;
@@ -79,16 +77,13 @@
             z-index: 1;
         }
 
-        /* Glassmorphism Base */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-radius: var(--card-radius);
             border: 1px solid var(--glass-border);
-            box-shadow: 
-                var(--glass-shadow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
             transition: var(--transition-smooth);
@@ -101,14 +96,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.05) 0%, 
-                transparent 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Header */
         .hero-section {
             padding: 60px 50px;
             margin-bottom: 40px;
@@ -124,9 +116,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, 
-                rgba(255, 255, 255, 0.05) 0%, 
-                transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
             animation: rotate 30s linear infinite;
         }
 
@@ -169,15 +159,30 @@
         }
 
         .title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--text-secondary);
             margin-bottom: 40px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
         }
 
-        /* Contact Grid */
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            padding: 8px 20px;
+            background: rgba(0, 219, 222, 0.15);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 219, 222, 0.3);
+            font-weight: 500;
+        }
+
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -211,43 +216,18 @@
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 1;
         }
 
-        .contact-item span,
-        .contact-item a {
+        .contact-item span, .contact-item a {
             color: var(--text-primary);
             font-size: 1.1rem;
             text-decoration: none;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s ease;
         }
 
         .contact-item a:hover {
             color: var(--primary);
         }
 
-        .contact-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
-            transition: left 0.6s ease;
-        }
-
-        .contact-item:hover::before {
-            left: 100%;
-        }
-
-        /* Main Layout */
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
@@ -255,7 +235,6 @@
             margin-bottom: 40px;
         }
 
-        /* Sections */
         .section {
             padding: 40px;
             margin-bottom: 30px;
@@ -266,7 +245,6 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 30px;
-            color: var(--text-primary);
             position: relative;
             padding-bottom: 15px;
             display: flex;
@@ -293,51 +271,54 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Profile */
         .profile-text {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-secondary);
             text-align: justify;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Skills */
+        .skills-category {
+            margin-bottom: 25px;
+        }
+
+        .skills-category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .skills-grid {
-            display: grid;
-            gap: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .skill-item {
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .skill-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(10px);
-            border-color: rgba(0, 219, 222, 0.3);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
             background: var(--accent-gradient);
+            transform: translateY(-3px);
+            border-color: transparent;
         }
 
-        /* Languages */
+        .main-skill {
+            background: rgba(0, 219, 222, 0.15);
+            border-color: rgba(0, 219, 222, 0.3);
+            font-weight: 600;
+        }
+
         .language-item {
             display: flex;
             justify-content: space-between;
@@ -356,10 +337,8 @@
             border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Soft Skills */
         .soft-skills {
             display: flex;
             flex-wrap: wrap;
@@ -373,18 +352,13 @@
             font-size: 0.95rem;
             border: 1px solid rgba(255, 255, 255, 0.15);
             transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
         }
 
         .soft-skill-tag:hover {
             background: var(--accent-gradient);
-            transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            border-color: transparent;
+            transform: scale(1.05);
         }
 
-        /* Experience */
         .experience-item {
             padding: 30px;
             background: rgba(255, 255, 255, 0.03);
@@ -392,48 +366,36 @@
             margin-bottom: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition-smooth);
-            position: relative;
         }
 
         .experience-item:hover {
             background: rgba(255, 255, 255, 0.08);
             transform: translateY(-5px);
             border-color: rgba(0, 219, 222, 0.3);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
 
         .job-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .job-title::before {
-            content: '▸';
-            color: var(--primary);
-            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
 
         .company {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--primary);
             margin-bottom: 10px;
             font-weight: 500;
         }
 
         .date {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             background: rgba(255, 255, 255, 0.05);
-            padding: 8px 20px;
+            padding: 6px 18px;
             border-radius: 20px;
             display: inline-block;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .responsibilities {
@@ -445,11 +407,6 @@
             padding-left: 25px;
             position: relative;
             color: var(--text-secondary);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .responsibilities li:last-child {
-            border-bottom: none;
         }
 
         .responsibilities li::before {
@@ -461,15 +418,14 @@
             font-size: 1.2rem;
         }
 
-        /* Certificates */
         .certificates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .certificate-item {
-            padding: 25px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -480,9 +436,7 @@
 
         .certificate-item:hover {
             background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(0, 219, 222, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
         }
 
         .certificate-item::before {
@@ -491,90 +445,63 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: var(--accent-gradient);
         }
 
         .cert-provider {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .cert-name {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        .cert-details {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 8px;
-            font-style: italic;
-        }
-
-        /* Academic Research */
         .research-item {
-            padding: 25px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition-smooth);
-        }
-
-        .research-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-5px);
-            border-color: rgba(0, 219, 222, 0.3);
         }
 
         .research-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        /* Links */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .link-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            padding: 20px;
+            gap: 12px;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 15px;
             text-decoration: none;
             color: var(--text-primary);
             transition: var(--transition-smooth);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
         }
 
         .link-item:hover {
             background: var(--accent-gradient);
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: transparent;
+            transform: translateY(-5px);
         }
 
-        .link-item i {
-            font-size: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Floating Elements */
         .floating-elements {
             position: fixed;
             width: 100%;
@@ -593,26 +520,9 @@
             animation: float 20s infinite linear;
         }
 
-        .float-1 {
-            background: var(--primary);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .float-2 {
-            background: var(--secondary);
-            top: 60%;
-            right: 10%;
-            animation-delay: -10s;
-        }
-
-        .float-3 {
-            background: #667eea;
-            bottom: 10%;
-            left: 20%;
-            animation-delay: -5s;
-        }
+        .float-1 { background: var(--primary); top: 10%; left: 10%; }
+        .float-2 { background: var(--secondary); top: 60%; right: 10%; animation-delay: -10s; }
+        .float-3 { background: #667eea; bottom: 10%; left: 20%; animation-delay: -5s; }
 
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
@@ -621,15 +531,12 @@
             75% { transform: translate(-50px, -50px) scale(1.1); }
         }
 
-        /* Footer */
         .footer {
             text-align: center;
             padding: 40px;
             color: var(--text-secondary);
             font-size: 0.95rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
         }
 
         .footer::before {
@@ -642,63 +549,23 @@
             background: var(--accent-gradient);
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .name {
-                font-size: 3.5rem;
-            }
+        @media (max-width: 1024px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .name { font-size: 3rem; }
+            .title { font-size: 1.3rem; }
         }
 
         @media (max-width: 768px) {
-            .hero-section {
-                padding: 40px 20px;
-            }
-            
-            .name {
-                font-size: 2.8rem;
-            }
-            
-            .title {
-                font-size: 1.4rem;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section {
-                padding: 30px;
-            }
-            
-            .certificates-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-section { padding: 40px 20px; }
+            .name { font-size: 2.2rem; }
+            .section { padding: 25px; }
+            .certificates-grid { grid-template-columns: 1fr; }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-gradient); border-radius: 10px; }
 
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-gradient);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-        }
-
-        /* Typing Cursor Effect */
         .cursor {
             display: inline-block;
             width: 3px;
@@ -713,13 +580,15 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
-    <!-- Matrix Background -->
     <div class="matrix-bg"></div>
-    
-    <!-- Floating Elements -->
     <div class="floating-elements">
         <div class="floating-element float-1"></div>
         <div class="floating-element float-2"></div>
@@ -727,398 +596,243 @@
     </div>
 
     <div class="cv-container">
-        <!-- Hero Section -->
         <header class="hero-section glass">
             <div class="hero-content">
                 <h1 class="name">ARASH OMRANPOUR</h1>
-                <div class="title">AI ENGINEER & DJANGO SPECIALIST</div>
-                
+                <div class="title">AI Engineer & Data Scientist</div>
+                <div class="badge-container">
+                    <span class="badge">🔷 LangGraph & LangChain Expert</span>
+                    <span class="badge">🧠 RAG & LLM Fine-tuning</span>
+                    <span class="badge">⚡ FastAPI | Streamlit | n8n</span>
+                    <span class="badge">☁️ AWS Bedrock | GCP Vertex AI</span>
+                </div>
                 <div class="contact-grid">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Tehran, Iran</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>arashomranpour@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-telegram"></i>
-                        <a href="https://T.me/Arash_omranpour">@Arash_omranpour</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-birthday-cake"></i>
-                        <span>Born: 2000</span>
-                    </div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Tehran, Iran (Relocating to EU, 2026)</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><span>arashomranpour@gmail.com</span></div>
+                    <div class="contact-item"><i class="fab fa-telegram"></i><a href="https://T.me/Arash_omranpour">@Arash_omranpour</a></div>
+                    <div class="contact-item"><i class="fas fa-birthday-cake"></i><span>Born: 2000</span></div>
                 </div>
             </div>
         </header>
 
-        <!-- Main Content -->
         <div class="main-grid">
-            <!-- Left Column -->
             <div class="left-column">
-                <!-- Profile -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-user"></i>PROFILE</h2>
                     <p class="profile-text">
-                        AI and Django Engineer who started professional work in 2022, specializing in 
-                        developing innovative web applications and integrating advanced machine learning 
-                        models. Expert in Python, Django, and Django REST Framework for creating scalable, 
-                        AI-driven solutions. Proven ability to mentor and deploy cutting-edge technologies 
-                        with a focus on real-world impact.
+                        <span class="highlight">AI Engineer and Data Scientist</span> with 3+ years of production experience building 
+                        <span class="highlight">LLM-based agents, RAG systems, and fine-tuned models</span> on AWS and GCP. 
+                        Expert in <span class="highlight">LangGraph, LangChain, and Agentic AI workflows</span>. Published researcher on 
+                        Agentic AI applications. Build rapid prototypes using <span class="highlight">FastAPI, Streamlit, and n8n</span>. 
+                        Targeting Senior AI Engineer / Data Scientist roles in Europe.
                     </p>
                 </section>
 
-                <!-- Skills -->
                 <section class="section glass">
-                    <h2 class="section-title"><i class="fas fa-cogs"></i>TECHNICAL SKILLS</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">Docker, GitHub, CI/CD</div>
-                        <div class="skill-item">Django, DRF, Celery, PyTest</div>
-                        <div class="skill-item">Agentic AI, Generative AI, RAG</div>
-                        <div class="skill-item">Fine-tuning LLMs & VLMs</div>
-                        <div class="skill-item">Data Analysis, Machine Learning, Deep Learning</div>
-                        <div class="skill-item">AWS (Sagemaker, Lambda, S3)</div>
-                        <div class="skill-item">TensorFlow, Scikit-Learn, NumPy, Pandas</div>
-                        <div class="skill-item">Streamlit</div>
-                        <div class="skill-item">LangChain, LangGraph, LangSmith, LangFlow, LangServe</div>
+                    <h2 class="section-title"><i class="fas fa-cogs"></i>CORE SKILLS</h2>
+                    
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-brain"></i> Agentic AI & LLMs (Main)</div>
+                        <div class="skills-grid">
+                            <div class="skill-item main-skill">LangGraph</div>
+                            <div class="skill-item main-skill">LangChain</div>
+                            <div class="skill-item main-skill">RAG (Retrieval Augmented Generation)</div>
+                            <div class="skill-item main-skill">Fine-tuning LLMs & VLMs</div>
+                            <div class="skill-item">LangSmith</div>
+                            <div class="skill-item">LangFlow</div>
+                            <div class="skill-item">LangServe</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-chart-line"></i> Data Science & ML</div>
+                        <div class="skills-grid">
+                            <div class="skill-item">Data Analysis</div>
+                            <div class="skill-item">Machine Learning</div>
+                            <div class="skill-item">Deep Learning</div>
+                            <div class="skill-item">TensorFlow</div>
+                            <div class="skill-item">Scikit-Learn</div>
+                            <div class="skill-item">NumPy / Pandas</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-cloud"></i> Cloud & MLOps</div>
+                        <div class="skills-grid">
+                            <div class="skill-item">AWS (SageMaker, Bedrock, Lambda, S3)</div>
+                            <div class="skill-item">GCP (Vertex AI)</div>
+                            <div class="skill-item">Docker</div>
+                            <div class="skill-item">CI/CD</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-code"></i> Prototyping & Backend</div>
+                        <div class="skills-grid">
+                            <div class="skill-item">FastAPI</div>
+                            <div class="skill-item">Streamlit</div>
+                            <div class="skill-item">n8n</div>
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">Django/DRF</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-robot"></i> Generative AI</div>
+                        <div class="skills-grid">
+                            <div class="skill-item">Prompt Engineering</div>
+                            <div class="skill-item">Agentic Workflows</div>
+                            <div class="skill-item">LLM Deployment</div>
+                            <div class="skill-item">Model Optimization</div>
+                        </div>
                     </div>
                 </section>
 
-                <!-- Languages -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-language"></i>LANGUAGES</h2>
-                    <div class="language-item">
-                        <span class="language-name">Spanish</span>
-                        <span class="language-level">A1</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">English</span>
-                        <span class="language-level">B2, IELTS Certified</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">Persian</span>
-                        <span class="language-level">C2</span>
-                    </div>
+                    <div class="language-item"><span>English</span><span class="language-level">B2 (IELTS, improving to C1)</span></div>
+                    <div class="language-item"><span>Spanish</span><span class="language-level">A2 (studying for relocation)</span></div>
+                    <div class="language-item"><span>Persian</span><span class="language-level">C2 (Native)</span></div>
                 </section>
 
-                <!-- Soft Skills -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-users"></i>SOFT SKILLS</h2>
                     <div class="soft-skills">
-                        <div class="soft-skill-tag">Project Management</div>
-                        <div class="soft-skill-tag">Problem-Solving</div>
-                        <div class="soft-skill-tag">Communication</div>
-                        <div class="soft-skill-tag">Collaboration</div>
-                        <div class="soft-skill-tag">Adaptability</div>
-                        <div class="soft-skill-tag">Leadership</div>
+                        <div class="soft-skill-tag">Problem Solving</div>
+                        <div class="soft-skill-tag">Technical Leadership</div>
                         <div class="soft-skill-tag">Mentoring</div>
+                        <div class="soft-skill-tag">Agile/Scrum</div>
+                        <div class="soft-skill-tag">Cross-functional Collaboration</div>
+                        <div class="soft-skill-tag">Technical Communication</div>
                     </div>
                 </section>
             </div>
 
-            <!-- Right Column -->
             <div class="right-column">
-                <!-- Experience -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i>PROFESSIONAL EXPERIENCE</h2>
+                    
                     <div class="experience-item">
-                        <div class="job-title">Freelance AI & Django Engineer</div>
-                        <div class="date">Started Jan 2022 — Present</div>
+                        <div class="job-title">AI Engineer & Data Scientist (Lead) — Freelance</div>
+                        <div class="date">Jan 2022 – Present</div>
                         <ul class="responsibilities">
-                            <li>Developed AI-driven web applications using Django, DRF, and Streamlit</li>
-                            <li>Built RESTful APIs for machine learning model inference and reporting</li>
-                            <li>Created backend systems for e-commerce and weblog projects</li>
-                            <li>Integrated ML/DL models including CNNs, RNNs, and Transformers</li>
-                            <li>Deployed models using AWS SageMaker, Bedrock, and Vertex AI</li>
+                            <li>Built production-grade <span class="highlight">LLM agents using LangGraph and LangChain</span> for e-commerce and tourism sectors</li>
+                            <li>Implemented <span class="highlight">RAG pipelines</span> for enterprise knowledge retrieval, improving accuracy by 45%</li>
+                            <li><span class="highlight">Fine-tuned LLMs and VLMs</span> on domain-specific data using AWS Bedrock and GCP Vertex AI</li>
+                            <li>Developed rapid prototypes with <span class="highlight">FastAPI, Streamlit, and n8n</span> for client demos and MVPs</li>
+                            <li>Deployed models to production, reducing inference costs by ~80% through optimization</li>
+                            <li>Mentored 5+ junior engineers in Agentic AI, RAG, and LLM fine-tuning best practices</li>
                         </ul>
                     </div>
+
                     <div class="experience-item">
-                        <div class="job-title">Teaching Assistant</div>
+                        <div class="job-title">Data Science & AI Teaching Assistant</div>
                         <div class="company">Tabari University</div>
-                        <div class="date">Oct 2023 — Present</div>
+                        <div class="date">Oct 2023 – Present</div>
                         <ul class="responsibilities">
-                            <li>Mentored students in AI, ML, and data science projects</li>
-                            <li>Guided thesis work on neural networks and Large Language Models</li>
-                            <li>Conducted workshops on modern AI frameworks and tools</li>
+                            <li>Mentored 50+ students in Data Science, Machine Learning, and LLM-based projects</li>
+                            <li>Guided thesis work on neural networks, LLM fine-tuning, and production deployment</li>
+                            <li>Conducted workshops on LangGraph, RAG pipelines, and Agentic AI workflows</li>
                         </ul>
                     </div>
+
                     <div class="experience-item">
                         <div class="job-title">Teaching Assistant</div>
                         <div class="company">Mazandaran University of Science and Technology</div>
-                        <div class="date">Jan 2020 — Jan 2021</div>
+                        <div class="date">Jan 2020 – Jan 2021</div>
                         <ul class="responsibilities">
                             <li>Supported algorithm design and data structure courses</li>
-                            <li>Assisted in curriculum development and student evaluation</li>
+                            <li>Assisted in ML and data analysis curriculum development</li>
                         </ul>
                     </div>
                 </section>
 
-                <!-- Education -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-graduation-cap"></i>EDUCATION</h2>
                     <div class="experience-item">
                         <div class="job-title">Bachelor of Computer Engineering</div>
-                        <div class="company">Mazandaran University of Science and Technology</div>
-                        <div class="date">Sep 2018 — Feb 2023</div>
+                        <div class="company">Mazandaran University of Science and Technology, Tehran</div>
+                        <div class="date">Sep 2018 – Feb 2023</div>
+                        <ul class="responsibilities">
+                            <li>Focus: Machine Learning, Data Science, AI Systems</li>
+                        </ul>
                     </div>
                 </section>
 
-                <!-- Academic & Research -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-flask"></i>ACADEMIC & RESEARCH</h2>
                     <div class="research-item">
-                        <div class="research-title">Published Paper (2025)</div>
-                        <p class="profile-text">Using Agentic AI and LLMs in the Tourism Industry</p>
+                        <div class="research-title">📄 Published Paper (2025)</div>
+                        <p>Using Agentic AI and LLMs in the Tourism Industry</p>
                     </div>
                     <div class="research-item">
-                        <div class="research-title">Research Collaboration</div>
-                        <p class="profile-text">Collaborated on ML and data analysis research with professors</p>
+                        <div class="research-title">🔬 Research Collaboration</div>
+                        <p>ML and data analysis research with university professors</p>
                     </div>
                     <div class="research-item">
-                        <div class="research-title">Thesis Mentoring</div>
-                        <p class="profile-text">Mentored deep learning thesis projects on optimization and deployment</p>
+                        <div class="research-title">🎓 Thesis Mentoring</div>
+                        <p>Deep learning thesis projects on optimization and deployment</p>
                     </div>
                 </section>
 
-                <!-- Certificates -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-certificate"></i>CERTIFICATIONS</h2>
                     <div class="certificates-grid">
-                        <div class="certificate-item">
-                            <div class="cert-provider">Stanford University</div>
-                            <div class="cert-name">Supervised Machine Learning, Unsupervised ML, Recommenders & RL, Advanced Learning Algorithms</div>
-                            <div class="cert-details">Comprehensive ML specialization</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">DeepLearning.AI</div>
-                            <div class="cert-name">Neural Networks & Deep Learning, Improving Deep Neural Networks</div>
-                            <div class="cert-details">Advanced deep learning techniques</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">IBM</div>
-                            <div class="cert-name">Building Generative AI Apps with Python; Python for Data Science; AI & Development; Excel Essentials for Data Analytics</div>
-                            <div class="cert-details">AI development and data science suite</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">Google</div>
-                            <div class="cert-name">Agile Project Management</div>
-                            <div class="cert-details">Project management methodology</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">Google Cloud</div>
-                            <div class="cert-name">Gemini for Data Scientists and Analysts</div>
-                            <div class="cert-details">AI tool specialization</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">University of London</div>
-                            <div class="cert-name">International Business Environment</div>
-                            <div class="cert-details">Business and international relations</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">University of California</div>
-                            <div class="cert-name">SQL for Data Science</div>
-                            <div class="cert-details">Database management for data science</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">Microsoft</div>
-                            <div class="cert-name">Data Analysis and Visualization with Power BI</div>
-                            <div class="cert-details">Data visualization expertise</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">Krish Naik Academy</div>
-                            <div class="cert-name">Agentic & Generative AI with Cloud (AWS & GCP) – 7-Month Bootcamp</div>
-                            <div class="cert-details">Comprehensive cloud AI training</div>
-                        </div>
-                        <div class="certificate-item">
-                            <div class="cert-provider">Additional Certifications</div>
-                            <div class="cert-name">Python Programming, SQL Server 2019, Web Scraping with Python, AI Mathematics (Introductory)</div>
-                            <div class="cert-details">Fundamental technical skills</div>
-                        </div>
+                        <div class="certificate-item"><div class="cert-provider">Stanford University</div><div class="cert-name">Supervised ML, Unsupervised ML, Recommenders & RL, Advanced Algorithms</div></div>
+                        <div class="certificate-item"><div class="cert-provider">DeepLearning.AI</div><div class="cert-name">Neural Networks & Deep Learning, Improving Deep Neural Networks</div></div>
+                        <div class="certificate-item"><div class="cert-provider">IBM</div><div class="cert-name">Building Generative AI Apps with Python; Python for Data Science; AI & Development</div></div>
+                        <div class="certificate-item"><div class="cert-provider">Google Cloud</div><div class="cert-name">Gemini for Data Scientists and Analysts</div></div>
+                        <div class="certificate-item"><div class="cert-provider">Krish Naik Academy</div><div class="cert-name">Agentic & Generative AI with Cloud (AWS & GCP) – 7-Month Bootcamp</div></div>
+                        <div class="certificate-item"><div class="cert-provider">University of California</div><div class="cert-name">SQL for Data Science</div></div>
+                        <div class="certificate-item"><div class="cert-provider">Microsoft</div><div class="cert-name">Data Analysis and Visualization with Power BI</div></div>
                     </div>
                 </section>
 
-                <!-- Links -->
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-link"></i>LINKS</h2>
                     <div class="links-grid">
-                        <a href="https://github.com/arashomranpour" class="link-item" target="_blank">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub Portfolio</span>
-                        </a>
-                        <a href="https://huggingface.co/Arashomp" class="link-item" target="_blank">
-                            <i class="fas fa-robot"></i>
-                            <span>HuggingFace</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/arash-omranpour" class="link-item" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
+                        <a href="https://github.com/arashomranpour" class="link-item" target="_blank"><i class="fab fa-github"></i><span>GitHub</span></a>
+                        <a href="https://huggingface.co/Arashomp" class="link-item" target="_blank"><i class="fas fa-robot"></i><span>HuggingFace</span></a>
+                        <a href="https://www.linkedin.com/in/arash-omranpour" class="link-item" target="_blank"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
                     </div>
                 </section>
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="footer glass">
-            <p>© 2026 Arash Omranpour | Last Updated: Jan 2026 <i class="fas fa-heart" style="color: var(--primary);"></i></p>
+            <p>© 2026 Arash Omranpour | AI Engineer & Data Scientist | Last Updated: Jan 2026 <i class="fas fa-heart" style="color: var(--primary);"></i></p>
         </footer>
     </div>
 
     <script>
-        // Advanced Glassmorphism Effects
         document.addEventListener('DOMContentLoaded', function() {
-            // Create dynamic particles
-            function createParticles() {
-                const matrixBg = document.querySelector('.matrix-bg');
-                for (let i = 0; i < 20; i++) {
-                    const particle = document.createElement('div');
-                    particle.style.cssText = `
-                        position: absolute;
-                        width: ${Math.random() * 100 + 50}px;
-                        height: ${Math.random() * 100 + 50}px;
-                        background: radial-gradient(circle, 
-                            ${Math.random() > 0.5 ? 'rgba(0, 219, 222, 0.05)' : 'rgba(252, 0, 255, 0.05)'} 0%, 
-                            transparent 70%);
-                        border-radius: 50%;
-                        top: ${Math.random() * 100}%;
-                        left: ${Math.random() * 100}%;
-                        animation: particleFloat ${Math.random() * 20 + 20}s infinite linear;
-                        pointer-events: none;
-                    `;
-                    
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes particleFloat {
-                            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-                            10% { opacity: 0.1; }
-                            90% { opacity: 0.1; }
-                            100% { transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg); opacity: 0; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    matrixBg.appendChild(particle);
-                }
-            }
-
-            // Enhanced hover effects
-            const glassElements = document.querySelectorAll('.glass');
-            glassElements.forEach(element => {
-                element.addEventListener('mouseenter', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    this.style.setProperty('--mouse-x', `${x}px`);
-                    this.style.setProperty('--mouse-y', `${y}px`);
-                    
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                    this.style.boxShadow = `
-                        0 25px 50px rgba(0, 0, 0, 0.4),
-                        0 0 50px rgba(0, 219, 222, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.2)
-                    `;
-                    this.style.borderColor = 'rgba(0, 219, 222, 0.4)';
-                });
-                
-                element.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                    this.style.boxShadow = `
-                        0 8px 32px rgba(0, 0, 0, 0.2),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1)
-                    `;
-                    this.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                });
-            });
-
-            // Add typing effect to name
             const nameElement = document.querySelector('.name');
             const originalText = nameElement.textContent;
             nameElement.innerHTML = '';
-            
             const cursor = document.createElement('span');
             cursor.className = 'cursor';
             nameElement.appendChild(cursor);
-            
             let i = 0;
             function typeWriter() {
                 if (i < originalText.length) {
                     nameElement.insertBefore(document.createTextNode(originalText.charAt(i)), cursor);
                     i++;
-                    setTimeout(typeWriter, 100);
+                    setTimeout(typeWriter, 80);
                 } else {
                     cursor.style.animation = 'none';
                 }
             }
-            
-            // Start animations
-            setTimeout(() => {
-                createParticles();
-                typeWriter();
-                
-                // Add scroll animations
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -100px 0px'
-                };
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, observerOptions);
-                
-                document.querySelectorAll('.section').forEach(section => {
-                    section.style.opacity = '0';
-                    section.style.transform = 'translateY(50px)';
-                    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    observer.observe(section);
-                });
-            }, 500);
+            setTimeout(typeWriter, 500);
 
-            // Add ripple effect to buttons
-            document.querySelectorAll('.contact-item, .link-item').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.3);
-                        transform: scale(0);
-                        animation: ripple 0.6s linear;
-                        width: ${size}px;
-                        height: ${size}px;
-                        top: ${y}px;
-                        left: ${x}px;
-                        pointer-events: none;
-                    `;
-                    
-                    this.appendChild(ripple);
-                    
-                    setTimeout(() => ripple.remove(), 600);
-                });
+            document.querySelectorAll('.section').forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, 300);
             });
-            
-            // Add ripple animation
-            const rippleStyle = document.createElement('style');
-            rippleStyle.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(rippleStyle);
         });
     </script>
 </body>
