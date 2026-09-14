@@ -6,6 +6,8 @@
     <title>Arash Omranpour - AI Engineer & Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- html2pdf library for one-click PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --primary: #00dbde;
@@ -231,6 +233,61 @@
 
         .contact-item a:hover {
             color: var(--primary);
+        }
+
+        /* Buttons Styling */
+        .header-action-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pdf-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 34px;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            border: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 219, 222, 0.35);
+            transition: var(--transition-smooth);
+        }
+
+        .pdf-action-btn:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 14px 35px rgba(252, 0, 255, 0.45);
+        }
+
+        .floating-pdf-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            border: none;
+            outline: none;
+            padding: 15px 26px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 219, 222, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .floating-pdf-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(252, 0, 255, 0.55);
         }
 
         .main-grid {
@@ -552,33 +609,6 @@
             transform: translateY(-5px);
         }
 
-        /* Floating Action Print Button */
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-gradient);
-            color: #ffffff;
-            border: none;
-            outline: none;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 219, 222, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 100;
-            transition: var(--transition-smooth);
-        }
-
-        .print-btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 12px 30px rgba(252, 0, 255, 0.5);
-        }
-
         .floating-elements {
             position: fixed;
             width: 100%;
@@ -637,7 +667,7 @@
             .name { font-size: 2.2rem; }
             .section { padding: 25px; }
             .certificates-grid { grid-template-columns: 1fr; }
-            .print-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 0.85rem; }
+            .floating-pdf-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 0.85rem; }
         }
 
         ::-webkit-scrollbar { width: 10px; }
@@ -664,54 +694,23 @@
             font-weight: 600;
         }
 
-        /* Print Optimization (Clean PDF Output) */
+        /* Native Print fallback */
         @media print {
+            .floating-pdf-btn, .header-action-container, .matrix-bg, .floating-elements, .cursor {
+                display: none !important;
+            }
             body {
                 background: #ffffff !important;
                 color: #111111 !important;
-                padding: 0;
-            }
-            body::before, .matrix-bg, .floating-elements, .print-btn, .cursor {
-                display: none !important;
-            }
-            .cv-container {
-                max-width: 100% !important;
-                margin: 0 !important;
             }
             .glass {
                 background: #ffffff !important;
-                border: 1px solid #e0e0e0 !important;
+                border: 1px solid #ddd !important;
                 box-shadow: none !important;
                 color: #111111 !important;
-                backdrop-filter: none !important;
             }
             .name {
-                background: none !important;
                 -webkit-text-fill-color: #111111 !important;
-                color: #111111 !important;
-                text-shadow: none !important;
-            }
-            .name::after {
-                background: #333333 !important;
-                filter: none !important;
-            }
-            .title, .section-title, .job-title, .skills-category-title, .company, .research-title, .cert-provider {
-                color: #111111 !important;
-            }
-            .profile-text, .responsibilities li, .cert-name, .contact-item span, .contact-item a {
-                color: #333333 !important;
-            }
-            .badge, .skill-item, .soft-skill-tag, .project-tag, .date, .contact-item {
-                background: #f4f4f4 !important;
-                color: #222222 !important;
-                border: 1px solid #d0d0d0 !important;
-            }
-            .main-grid {
-                display: block !important;
-            }
-            .section, .experience-item, .project-card, .certificate-item {
-                break-inside: avoid;
-                margin-bottom: 20px !important;
             }
         }
     </style>
@@ -724,10 +723,12 @@
         <div class="floating-element float-3"></div>
     </div>
 
-    <!-- Print / Export Button -->
-    <button class="print-btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Print / Save PDF</button>
+    <!-- Floating PDF Download Button -->
+    <button class="floating-pdf-btn" id="floatingPdfBtn" onclick="downloadCVAsPDF()">
+        <i class="fas fa-file-pdf"></i> Download PDF
+    </button>
 
-    <div class="cv-container">
+    <div class="cv-container" id="cv-content">
         <header class="hero-section glass">
             <div class="hero-content">
                 <h1 class="name">ARASH OMRANPOUR</h1>
@@ -745,11 +746,18 @@
                     <div class="contact-item"><i class="fab fa-telegram"></i><a href="https://T.me/Arash_omranpour">@Arash_omranpour</a></div>
                     <div class="contact-item"><i class="fas fa-birthday-cake"></i><span>Born: 2000</span></div>
                 </div>
+
+                <!-- Hero Header Download Button -->
+                <div class="header-action-container">
+                    <button class="pdf-action-btn" onclick="downloadCVAsPDF()">
+                        <i class="fas fa-download"></i> Download Full Resume (PDF)
+                    </button>
+                </div>
             </div>
         </header>
 
         <div class="main-grid">
-            <!-- Left Column: Skills & Profile -->
+            <!-- Left Column -->
             <div class="left-column">
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-user"></i>PROFILE</h2>
@@ -843,7 +851,7 @@
                 </section>
             </div>
 
-            <!-- Right Column: Experience, Projects & Education -->
+            <!-- Right Column -->
             <div class="right-column">
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i>PROFESSIONAL EXPERIENCE</h2>
@@ -854,7 +862,7 @@
                         <ul class="responsibilities">
                             <li>Architected resilient <span class="highlight">multi-agent workflows using LangGraph and LangChain DeepAgents</span> for e-commerce and tourism platforms.</li>
                             <li>Engineered <span class="highlight">Vectorless and hybrid RAG pipelines</span>, drastically reducing indexing overhead while boosting retrieval accuracy by 45%.</li>
-                            <li>Integrated <span class="highlight">LiteLLM unified gateways</span> for rate limiting, budget control, and fallback routing across commercial and local LLMs.</li>
+                            <li>Integrated <span class="highlight">LiteLLM unified gateways</span> for rate limiting, budget control, and fallback routing across commercial and open LLMs.</li>
                             <li>Implemented baseline <span class="highlight">guardrails</span> to sanitize inputs and prevent prompt injection, hallucinations, and PII leakage.</li>
                             <li>Conducted <span class="highlight">parameter-efficient fine-tuning (PEFT/LoRA/DoRA)</span> on open models deployed to GCP Vertex AI, decreasing inference latency and cost by ~80%.</li>
                             <li>Mentored 5+ junior engineers in Agentic AI patterns, tool execution, and deployment best practices.</li>
@@ -990,6 +998,33 @@
     </div>
 
     <script>
+        // PDF Download Handler
+        function downloadCVAsPDF() {
+            const element = document.getElementById('cv-content');
+            const headerBtn = document.querySelector('.header-action-container');
+            const floatBtn = document.getElementById('floatingPdfBtn');
+            
+            // Hide buttons from appearing in the generated PDF file
+            if (headerBtn) headerBtn.style.display = 'none';
+            if (floatBtn) floatBtn.style.display = 'none';
+
+            const opt = {
+                margin:       [10, 10, 10, 10],
+                filename:     'Arash_Omranpour_CV.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, logging: false },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restore buttons after PDF is created
+                if (headerBtn) headerBtn.style.display = 'flex';
+                if (floatBtn) floatBtn.style.display = 'flex';
+            });
+        }
+
+        // Typewriter & Animations
         document.addEventListener('DOMContentLoaded', function() {
             const nameElement = document.querySelector('.name');
             const originalText = nameElement.textContent;
