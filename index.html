@@ -89,6 +89,11 @@
             transition: var(--transition-smooth);
         }
 
+        .glass:hover {
+            border-color: rgba(0, 219, 222, 0.35);
+            box-shadow: 0 12px 40px rgba(0, 219, 222, 0.15);
+        }
+
         .glass::before {
             content: '';
             position: absolute;
@@ -418,6 +423,51 @@
             font-size: 1.2rem;
         }
 
+        /* Project Cards */
+        .project-card {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+            border-color: rgba(0, 219, 222, 0.3);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .project-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .project-tag {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background: rgba(0, 219, 222, 0.12);
+            color: var(--primary);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 219, 222, 0.25);
+        }
+
         .certificates-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -502,6 +552,33 @@
             transform: translateY(-5px);
         }
 
+        /* Floating Action Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-gradient);
+            color: #ffffff;
+            border: none;
+            outline: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 219, 222, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 100;
+            transition: var(--transition-smooth);
+        }
+
+        .print-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(252, 0, 255, 0.5);
+        }
+
         .floating-elements {
             position: fixed;
             width: 100%;
@@ -560,6 +637,7 @@
             .name { font-size: 2.2rem; }
             .section { padding: 25px; }
             .certificates-grid { grid-template-columns: 1fr; }
+            .print-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 0.85rem; }
         }
 
         ::-webkit-scrollbar { width: 10px; }
@@ -585,6 +663,57 @@
             color: var(--primary);
             font-weight: 600;
         }
+
+        /* Print Optimization (Clean PDF Output) */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #111111 !important;
+                padding: 0;
+            }
+            body::before, .matrix-bg, .floating-elements, .print-btn, .cursor {
+                display: none !important;
+            }
+            .cv-container {
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            .glass {
+                background: #ffffff !important;
+                border: 1px solid #e0e0e0 !important;
+                box-shadow: none !important;
+                color: #111111 !important;
+                backdrop-filter: none !important;
+            }
+            .name {
+                background: none !important;
+                -webkit-text-fill-color: #111111 !important;
+                color: #111111 !important;
+                text-shadow: none !important;
+            }
+            .name::after {
+                background: #333333 !important;
+                filter: none !important;
+            }
+            .title, .section-title, .job-title, .skills-category-title, .company, .research-title, .cert-provider {
+                color: #111111 !important;
+            }
+            .profile-text, .responsibilities li, .cert-name, .contact-item span, .contact-item a {
+                color: #333333 !important;
+            }
+            .badge, .skill-item, .soft-skill-tag, .project-tag, .date, .contact-item {
+                background: #f4f4f4 !important;
+                color: #222222 !important;
+                border: 1px solid #d0d0d0 !important;
+            }
+            .main-grid {
+                display: block !important;
+            }
+            .section, .experience-item, .project-card, .certificate-item {
+                break-inside: avoid;
+                margin-bottom: 20px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -595,14 +724,18 @@
         <div class="floating-element float-3"></div>
     </div>
 
+    <!-- Print / Export Button -->
+    <button class="print-btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Print / Save PDF</button>
+
     <div class="cv-container">
         <header class="hero-section glass">
             <div class="hero-content">
                 <h1 class="name">ARASH OMRANPOUR</h1>
                 <div class="title">AI Engineer & Data Scientist</div>
                 <div class="badge-container">
-                    <span class="badge">🔷 LangGraph & LangChain Expert</span>
-                    <span class="badge">🧠 RAG & LLM Fine-tuning</span>
+                    <span class="badge">🔷 LangGraph & DeepAgents</span>
+                    <span class="badge">🧠 Vectorless RAG & Fine-Tuning</span>
+                    <span class="badge">🛡️ LiteLLM Gateway & Guardrails</span>
                     <span class="badge">⚡ FastAPI | Streamlit | n8n</span>
                     <span class="badge">☁️ GCP Vertex AI</span>
                 </div>
@@ -616,15 +749,16 @@
         </header>
 
         <div class="main-grid">
+            <!-- Left Column: Skills & Profile -->
             <div class="left-column">
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-user"></i>PROFILE</h2>
                     <p class="profile-text">
-                        <span class="highlight">AI Engineer and Data Scientist</span> with 3+ years of production experience building 
-                        <span class="highlight">LLM-based agents, RAG systems, and fine-tuned models</span> on GCP. 
-                        Expert in <span class="highlight">LangGraph, LangChain, and Agentic AI workflows</span>. Published researcher on 
-                        Agentic AI applications. Build rapid prototypes using <span class="highlight">FastAPI, Streamlit, and n8n</span>. 
-                        Currently pursuing Master's in AI for Connected Industries (AI4CI) at UPC, Barcelona.
+                        <span class="highlight">AI Engineer and Data Scientist</span> with 3+ years of production experience engineering 
+                        <span class="highlight">autonomous agents, high-efficiency RAG systems, and fine-tuned LLM/VLM pipelines</span> on GCP. 
+                        Proficient in <span class="highlight">LangGraph, LangChain DeepAgents, Hermes Agent architectures, and LiteLLM gateways</span> with 
+                        integrated input/output guardrails. Published researcher exploring Agentic workflows. Currently pursuing a Master's degree in 
+                        AI for Connected Industries (AI4CI) at UPC, Barcelona.
                     </p>
                 </section>
 
@@ -632,56 +766,59 @@
                     <h2 class="section-title"><i class="fas fa-cogs"></i>CORE SKILLS</h2>
                     
                     <div class="skills-category">
-                        <div class="skills-category-title"><i class="fas fa-brain"></i> Agentic AI & LLMs (Main)</div>
+                        <div class="skills-category-title"><i class="fas fa-brain"></i> Agentic AI & Orchestration (Main)</div>
                         <div class="skills-grid">
                             <div class="skill-item main-skill">LangGraph</div>
-                            <div class="skill-item main-skill">LangChain</div>
-                            <div class="skill-item main-skill">RAG (Retrieval Augmented Generation)</div>
-                            <div class="skill-item main-skill">Fine-tuning LLMs & VLMs</div>
-                            <div class="skill-item">LangSmith</div>
-                            <div class="skill-item">LangFlow</div>
-                            <div class="skill-item">LangServe</div>
+                            <div class="skill-item main-skill">LangChain DeepAgents</div>
+                            <div class="skill-item main-skill">Hermes Agent Patterns</div>
+                            <div class="skill-item">LiteLLM (Gateways & Fallbacks)</div>
+                            <div class="skill-item">LLM Guardrails & Security</div>
+                            <div class="skill-item">LangSmith & LangFlow</div>
+                            <div class="skill-item">Multi-Agent Systems</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-layer-group"></i> RAG & Retrieval Architectures</div>
+                        <div class="skills-grid">
+                            <div class="skill-item main-skill">Vectorless RAG (Graph / Hybrid / Lexical)</div>
+                            <div class="skill-item main-skill">Vector RAG (Hybrid Search)</div>
+                            <div class="skill-item">Context Compression & Reranking</div>
+                            <div class="skill-item">Prompt Engineering & Caching</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <div class="skills-category-title"><i class="fas fa-sliders-h"></i> Model Fine-Tuning & Alignment</div>
+                        <div class="skills-grid">
+                            <div class="skill-item main-skill">PEFT (LoRA, QLoRA, DoRA)</div>
+                            <div class="skill-item main-skill">DPO (Direct Preference Optimization)</div>
+                            <div class="skill-item">LLM & VLM Domain Adaptation</div>
+                            <div class="skill-item">Hugging Face (TRL / PEFT)</div>
+                            <div class="skill-item">Weights & Biases (W&B)</div>
                         </div>
                     </div>
 
                     <div class="skills-category">
                         <div class="skills-category-title"><i class="fas fa-chart-line"></i> Data Science & ML</div>
                         <div class="skills-grid">
-                            <div class="skill-item">Data Analysis</div>
-                            <div class="skill-item">Machine Learning</div>
-                            <div class="skill-item">Deep Learning</div>
-                            <div class="skill-item">TensorFlow</div>
+                            <div class="skill-item">Machine Learning & Deep Learning</div>
+                            <div class="skill-item">TensorFlow & PyTorch</div>
                             <div class="skill-item">Scikit-Learn</div>
                             <div class="skill-item">NumPy / Pandas</div>
+                            <div class="skill-item">Statistical Data Analysis</div>
                         </div>
                     </div>
 
                     <div class="skills-category">
-                        <div class="skills-category-title"><i class="fas fa-cloud"></i> Cloud & MLOps</div>
-                        <div class="skills-grid">
-                            <div class="skill-item">GCP (Vertex AI)</div>
-                            <div class="skill-item">Docker</div>
-                            <div class="skill-item">CI/CD</div>
-                        </div>
-                    </div>
-
-                    <div class="skills-category">
-                        <div class="skills-category-title"><i class="fas fa-code"></i> Prototyping & Backend</div>
+                        <div class="skills-category-title"><i class="fas fa-code"></i> Prototyping, Backend & MLOps</div>
                         <div class="skills-grid">
                             <div class="skill-item">FastAPI</div>
                             <div class="skill-item">Streamlit</div>
-                            <div class="skill-item">n8n</div>
                             <div class="skill-item">Python</div>
-                        </div>
-                    </div>
-
-                    <div class="skills-category">
-                        <div class="skills-category-title"><i class="fas fa-robot"></i> Generative AI</div>
-                        <div class="skills-grid">
-                            <div class="skill-item">Prompt Engineering</div>
-                            <div class="skill-item">Agentic Workflows</div>
-                            <div class="skill-item">LLM Deployment</div>
-                            <div class="skill-item">Model Optimization</div>
+                            <div class="skill-item">n8n Automation</div>
+                            <div class="skill-item">GCP Vertex AI</div>
+                            <div class="skill-item">Docker & CI/CD</div>
                         </div>
                     </div>
                 </section>
@@ -689,7 +826,7 @@
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-language"></i>LANGUAGES</h2>
                     <div class="language-item"><span>English</span><span class="language-level">B2 (IELTS, improving to C1)</span></div>
-                    <div class="language-item"><span>Spanish</span><span class="language-level">A2 (actively studying)</span></div>
+                    <div class="language-item"><span>Spanish</span><span class="language-level">A2 (Actively studying)</span></div>
                     <div class="language-item"><span>Persian</span><span class="language-level">C2 (Native)</span></div>
                 </section>
 
@@ -706,6 +843,7 @@
                 </section>
             </div>
 
+            <!-- Right Column: Experience, Projects & Education -->
             <div class="right-column">
                 <section class="section glass">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i>PROFESSIONAL EXPERIENCE</h2>
@@ -714,12 +852,12 @@
                         <div class="job-title">AI Engineer & Data Scientist (Lead) — Freelance</div>
                         <div class="date">Jan 2022 – Present</div>
                         <ul class="responsibilities">
-                            <li>Built production-grade <span class="highlight">LLM agents using LangGraph and LangChain</span> for e-commerce and tourism sectors</li>
-                            <li>Implemented <span class="highlight">RAG pipelines</span> for enterprise knowledge retrieval, improving accuracy by 45%</li>
-                            <li><span class="highlight">Fine-tuned LLMs and VLMs</span> on domain-specific data using GCP Vertex AI</li>
-                            <li>Developed rapid prototypes with <span class="highlight">FastAPI, Streamlit, and n8n</span> for client demos and MVPs</li>
-                            <li>Deployed models to production, reducing inference costs by ~80% through optimization</li>
-                            <li>Mentored 5+ junior engineers in Agentic AI, RAG, and LLM fine-tuning best practices</li>
+                            <li>Architected resilient <span class="highlight">multi-agent workflows using LangGraph and LangChain DeepAgents</span> for e-commerce and tourism platforms.</li>
+                            <li>Engineered <span class="highlight">Vectorless and hybrid RAG pipelines</span>, drastically reducing indexing overhead while boosting retrieval accuracy by 45%.</li>
+                            <li>Integrated <span class="highlight">LiteLLM unified gateways</span> for rate limiting, budget control, and fallback routing across commercial and local LLMs.</li>
+                            <li>Implemented baseline <span class="highlight">guardrails</span> to sanitize inputs and prevent prompt injection, hallucinations, and PII leakage.</li>
+                            <li>Conducted <span class="highlight">parameter-efficient fine-tuning (PEFT/LoRA/DoRA)</span> on open models deployed to GCP Vertex AI, decreasing inference latency and cost by ~80%.</li>
+                            <li>Mentored 5+ junior engineers in Agentic AI patterns, tool execution, and deployment best practices.</li>
                         </ul>
                     </div>
 
@@ -728,9 +866,9 @@
                         <div class="company">Tabari University</div>
                         <div class="date">Oct 2023 – Present</div>
                         <ul class="responsibilities">
-                            <li>Mentored 50+ students in Data Science, Machine Learning, and LLM-based projects</li>
-                            <li>Guided thesis work on neural networks, LLM fine-tuning, and production deployment</li>
-                            <li>Conducted workshops on LangGraph, RAG pipelines, and Agentic AI workflows</li>
+                            <li>Mentored 50+ students in Data Science, Machine Learning, and Agentic AI applications.</li>
+                            <li>Guided graduation thesis work on deep neural networks, model fine-tuning, and production serving.</li>
+                            <li>Designed and delivered hands-on technical workshops on LangGraph, Vectorless retrieval, and practical LLM deployment.</li>
                         </ul>
                     </div>
 
@@ -739,9 +877,48 @@
                         <div class="company">Mazandaran University of Science and Technology</div>
                         <div class="date">Jan 2020 – Jan 2021</div>
                         <ul class="responsibilities">
-                            <li>Supported algorithm design and data structure courses</li>
-                            <li>Assisted in ML and data analysis curriculum development</li>
+                            <li>Assisted lectures in algorithm analysis, data structures, and foundational Python.</li>
+                            <li>Collaborated with faculty on ML and statistical data analysis curriculum development.</li>
                         </ul>
+                    </div>
+                </section>
+
+                <section class="section glass">
+                    <h2 class="section-title"><i class="fas fa-project-diagram"></i>FEATURED AI PROJECTS</h2>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-name">Autonomous Multi-Agent Enterprise Assistant</div>
+                        </div>
+                        <p class="profile-text" style="font-size: 0.95rem;">
+                            Engineered an autonomous workflow featuring dynamic tool-calling, conversational memory, and task decomposition using 
+                            <strong>LangGraph</strong> and <strong>Hermes agent</strong> architectural concepts. Configured dynamic model routing and fallback strategies via 
+                            <strong>LiteLLM</strong> with validation guardrails.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">LangGraph</span>
+                            <span class="project-tag">LangChain DeepAgents</span>
+                            <span class="project-tag">LiteLLM</span>
+                            <span class="project-tag">Guardrails</span>
+                            <span class="project-tag">FastAPI</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-name">Vectorless Knowledge Extraction & Domain Adaptation</div>
+                        </div>
+                        <p class="profile-text" style="font-size: 0.95rem;">
+                            Developed a structured <strong>Vectorless RAG</strong> pipeline extracting entity hierarchies from proprietary documents without heavy embedding compute. 
+                            Fine-tuned domain LLMs using <strong>LoRA / DoRA</strong> and <strong>DPO</strong> alignment for domain consistency and deterministic parsing.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Vectorless RAG</span>
+                            <span class="project-tag">PEFT / LoRA</span>
+                            <span class="project-tag">DPO</span>
+                            <span class="project-tag">GCP Vertex AI</span>
+                            <span class="project-tag">Streamlit</span>
+                        </div>
                     </div>
                 </section>
 
@@ -753,7 +930,7 @@
                         <div class="company">Universitat Politècnica de Catalunya (UPC), Barcelona, Spain</div>
                         <div class="date">Sep 2026 – Present (Started Sep 1, 2026)</div>
                         <ul class="responsibilities">
-                            <li>Specialization in Advanced AI, Machine Learning, and Connected Industrial Systems</li>
+                            <li>Focus: Advanced AI, Autonomous Connected Systems, Edge AI, and Industrial ML Systems.</li>
                         </ul>
                     </div>
 
@@ -762,7 +939,7 @@
                         <div class="company">Mazandaran University of Science and Technology, Tehran</div>
                         <div class="date">Sep 2018 – Feb 2023</div>
                         <ul class="responsibilities">
-                            <li>Focus: Machine Learning, Data Science, AI Systems</li>
+                            <li>Focus: Machine Learning, Data Science, AI Systems & Data Structures.</li>
                         </ul>
                     </div>
                 </section>
@@ -775,11 +952,11 @@
                     </div>
                     <div class="research-item">
                         <div class="research-title">🔬 Research Collaboration</div>
-                        <p>ML and data analysis research with university professors</p>
+                        <p>ML and data analysis research with university faculty</p>
                     </div>
                     <div class="research-item">
                         <div class="research-title">🎓 Thesis Mentoring</div>
-                        <p>Deep learning thesis projects on optimization and deployment</p>
+                        <p>Deep learning thesis guidance on parameter optimization and serving</p>
                     </div>
                 </section>
 
